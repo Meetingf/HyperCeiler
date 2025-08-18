@@ -32,7 +32,8 @@ public class UnlockNeverSleepScreen extends BaseHook {
                 findAndHookMethod("android.os.SystemProperties", "get", String.class, new MethodHook(){
                     @Override
                     protected void before(MethodHookParam param) throws Throwable {
-                        if ("ro.vendor.display.type".equals(param) || "ro.display.type".equals(param)) {
+                        String propertyName = (String) param.args[0];
+                        if ("ro.vendor.display.type".equals(propertyName) || "ro.display.type".equals(propertyName)) {
                             param.setResult("lcd");
                         }
                     }
