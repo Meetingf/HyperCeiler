@@ -56,7 +56,7 @@ public class LanguageHelper {
         Configuration configuration = resources.getConfiguration();
         Locale.setDefault(locale);
         configuration.setLocale(locale);
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+        context.createConfigurationContext(configuration);
     }
 
     public static void setIndexLanguage(Activity activity, int index, boolean recreate) {
